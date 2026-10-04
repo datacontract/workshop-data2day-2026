@@ -1,8 +1,8 @@
-# Exercise 8: Semantics
+# Exercise 9: Semantics
 
 Right now, the meaning of `order_id`, `order_total`, and `sku` is duplicated across your contracts — every contract carries its own copy of the descriptions. And the descriptions only say what a field *contains*, not what business concept it *is*. In this exercise, you define each concept *once* in **Semantics** — a lightweight business ontology on the platform — and link to it from the contracts you published in Exercise 7.
 
-> **Prerequisite:** This exercise builds on Exercise 7 — your contracts are published and the Entropy Data CLI connection works. If you run the Community Edition from this repository, Semantics is already enabled.
+> **Prerequisite:** This exercise builds on Exercise 8 — your contracts are published and the Entropy Data CLI connection works. If you run the Community Edition from this repository, Semantics is already enabled.
 
 ## Model the Business Concepts
 
