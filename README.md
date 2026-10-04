@@ -64,6 +64,13 @@ To reset the database, run `docker compose down && docker compose up -d`.
 No account on [app.entropy-data.com](https://app.entropy-data.com)? Run the [Entropy Data Community Edition](https://github.com/entropy-data/entropy-data-ce) locally with `docker compose -f entropy-data-ce/docker-compose.yaml up -d` (web UI on [http://localhost:8081](http://localhost:8081), set `ENTROPY_DATA_HOST=http://localhost:8081` in your `.env`).
 
 
+## Part D: Automate with CI/CD
+
+Builds on Parts A and B only (Part C is not required). Needs a GitHub account.
+
+9. [Exercise 9: CI/CD with GitHub Actions](exercises/part-d/exercise9-ci-cd-with-github-actions.md) (Data Contract CLI, Data Product CLI, GitHub Actions)
+
+
 ## Links
 
 - [ODCS Docs](https://bitol-io.github.io/open-data-contract-standard/) · [Source (GitHub)](https://github.com/bitol-io/open-data-contract-standard)
