@@ -22,6 +22,14 @@ Hands-on: put a PostgreSQL dataset under contract with [ODCS](https://bitol-io.g
 
 ## Getting Started
 
+Clone the repository and install the CLIs (on Windows: `scripts\install.bat`):
+
+```
+git clone https://github.com/datacontract/workshop-data2day-2026.git
+cd workshop-data2day-2026
+scripts/install.sh
+```
+
 Start the database (PostgreSQL on `localhost:5433`, preloaded with e-commerce data):
 
 ```

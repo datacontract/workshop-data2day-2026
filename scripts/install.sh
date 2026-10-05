@@ -1,7 +1,7 @@
 #!/bin/bash
 # Keep the pinned versions in sync with install.bat and install.ps1 (the Windows variants).
 uv tool install --force --python python3.11 'datacontract-cli[all]==1.2.3'
-uv tool install 'entropy-data==0.3.13'
+uv tool install 'entropy-data==0.3.24'
 uv tool update-shell
 which datacontract
 datacontract --version
