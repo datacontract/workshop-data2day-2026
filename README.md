@@ -25,6 +25,7 @@ Hands-on: put a PostgreSQL dataset under contract with [ODCS](https://bitol-io.g
 ## Getting Started
 
 Follow the [setup](exercises/SETUP.md): clone the repository, install the CLIs, and start the database.
+Create all your files in the repository root.
 
 
 ## Part A: The Source Data Product

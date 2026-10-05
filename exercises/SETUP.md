@@ -67,4 +67,8 @@ Do this once before [Exercise 1](part-a/exercise1-put-your-data-under-contract.m
 Open a SQL prompt with `docker compose exec postgres psql -U workshop -d workshop`.
 To reset the database, run `docker compose down && docker compose up -d`.
 
+## Where Your Files Go
+
+Run all commands from the repository root and create all files there, next to the `README.md` (for example `orders_v1.odcs.yaml`). The CLIs pick up the database credentials from the `.env` file there, and the [`.gitignore`](/.gitignore) keeps your files out of the workshop repository until Exercise 7.
+
 You are ready for [Exercise 1](part-a/exercise1-put-your-data-under-contract.md).
