@@ -2,7 +2,7 @@
 # and without the text descriptions that the semantic concepts now carry - keep in sync!
 version: 2.0.0
 kind: DataContract
-apiVersion: v3.1.0
+apiVersion: v3.2.0
 id: orders_v2
 name: Orders
 status: active

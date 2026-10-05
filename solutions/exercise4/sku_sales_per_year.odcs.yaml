@@ -1,6 +1,6 @@
 version: 1.0.0
 kind: DataContract
-apiVersion: v3.1.0
+apiVersion: v3.2.0
 id: sku_sales_per_year
 name: SKU Sales per Year
 status: draft
