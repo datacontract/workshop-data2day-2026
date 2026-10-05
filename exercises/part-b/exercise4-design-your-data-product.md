@@ -50,6 +50,8 @@ You consume the `orders_v2` contract — it guarantees you the `quantity` column
    - `total_quantity` is never less than `order_count`
    - The view is not empty
 
+   Documentation: [library metrics](https://docs.datacontract.com/quality-rules/library#supported-metrics) like `duplicateValues` and `rowCount` need no SQL; for everything else, use a [SQL quality rule](https://docs.datacontract.com/quality-rules/sql#schema-level-example).
+
 5. Save the contract and run the tests:
 
    ```bash
