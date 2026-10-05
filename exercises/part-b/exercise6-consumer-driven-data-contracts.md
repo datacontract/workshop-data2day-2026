@@ -5,6 +5,10 @@ A consumer-driven data contract lets the *consumer* define what subset of data t
 Your view from [Exercise 5](exercise5-implement-your-data-product.md) reads the producer's tables directly — it implicitly depends on the whole `orders_v2` contract, even though it only needs five fields. Make that explicit: define a consumer-driven contract for exactly those fields, and create views so you access only what you actually need.
 
 
+![SKU Sales reads orders_v2 through the consumer-driven contract orders_v2_consumer_sku_sales](../images/scenario-consumer-driven.webp)
+
+**In this exercise:** a consumer-driven contract with just the fields SKU Sales needs from `orders_v2`.
+
 ## Define What You Need
 
 1. Copy your `orders_v2.odcs.yaml` to `orders_v2.consumer_sku_sales.odcs.yaml` and open it in the Data Contract Editor:

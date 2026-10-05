@@ -9,12 +9,16 @@ Note that there is *one* data product — even though it currently offers *two* 
 The product is the stable unit of ownership; its ports evolve.
 
 
+![The Orders data product with its output ports orders_v1 and orders_v2](../images/scenario-data-product.webp)
+
+**In this exercise:** the Orders data product itself, described with ODPS: ownership, purpose, and its output ports.
+
 ## Create the Data Product
 
 1. Create a new file `orders.odps.yaml` with this skeleton:
 
    ```yaml
-   apiVersion: v1.0.0
+   apiVersion: v1.1.0
    kind: DataProduct
    id: orders # snake_case of the name
    name: Orders

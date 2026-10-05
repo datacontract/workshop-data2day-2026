@@ -5,6 +5,10 @@ The orders team introduces a new column `quantity` in the `line_items` table.
 It defaults to 1, but it is still a breaking change for data consumers — any downstream pipeline or report that relies on a fixed set of columns will need to be updated.
 So you release it as a new major version: `orders_v2`.
 
+![The Orders data product with the deprecated port orders_v1 and the new port orders_v2](../images/scenario-evolution.webp)
+
+**In this exercise:** a new major version `orders_v2` with the `quantity` column. `orders_v1` is retired.
+
 The `orders_v2` schema holds both tables — `orders` is unchanged, `line_items` has the new `quantity` column:
 
 ```sql

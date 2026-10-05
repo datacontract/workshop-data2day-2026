@@ -4,29 +4,19 @@ You are the owner of the **orders** data in your company's e-commerce platform.
 The data lives in a PostgreSQL database and consists of two tables: `orders` (containing order details like timestamps, totals, and customer information) and `line_items` (containing the individual items in each order, linked by `order_id`).
 Your goal is to define a data contract so that consumers of your data know exactly what to expect.
 
+![The Orders data product with its output port orders_v1](../images/scenario-contract.webp)
+
+**In this exercise:** the data contract for the output port `orders_v1` of the Orders data product.
+
 > [!IMPORTANT]
-> **Cannot run the install script on your laptop?** Do this exercise and [Exercise 2](exercise2-data-contract-evolution.md) in the hosted [Data Contract Editor](https://editor.datacontract.com) instead — it runs entirely in the browser, no installation needed. Where the steps say `datacontract edit`, work in the hosted editor and use its **Save** button to download the file; as the server, use the shared cloud database from the note in step 5. For the `datacontract test` steps, team up with a neighbor who has the CLI running.
+> **Cannot run the install script on your laptop?** Do this exercise and [Exercise 2](exercise2-data-contract-evolution.md) in the hosted [Data Contract Editor](https://editor.datacontract.com) instead — it runs entirely in the browser, no installation needed. Where the steps say `datacontract edit`, work in the hosted editor and use its **Save** button to download the file; as the server, use the shared cloud database from the note in step 3. For the `datacontract test` steps, team up with a neighbor who has the CLI running.
 
 
-## Install the CLI & Start the Database
+## Explore the Data
 
-1. Run `scripts/install.sh` script to get the Data Contract CLI.
+Make sure you completed the [setup](../SETUP.md): the CLIs are installed and the database is running.
 
-   ```bash
-   scripts/install.sh
-   ```
-
-   This might take a few minutes.
-
-   > **Windows?** Run `scripts\install.bat` instead — it works in both cmd and PowerShell (PowerShell-only alternative: `scripts\install.ps1`). All other commands in this workshop need **Git Bash** — see the note in the [README](/README.md#prerequisites).
-
-2. Start PostgreSQL with the preloaded data:
-
-   ```
-   docker compose up -d
-   ```
-
-3. Explore the data:
+1. Explore the data:
 
    ```
    docker compose exec postgres psql -U workshop -d workshop
@@ -69,7 +59,7 @@ Your goal is to define a data contract so that consumers of your data know exact
 
 ## Create the Contract
 
-4. Create a new data contract and open it in the Data Contract Editor:
+2. Create a new data contract and open it in the Data Contract Editor:
 
    ```bash
    datacontract edit orders_v1.odcs.yaml
@@ -85,7 +75,7 @@ Your goal is to define a data contract so that consumers of your data know exact
    - **Version**: `1.0.0` (leave as is)
    - **Status**: `draft` (leave as is)
    
-5. Go to **Servers** in the left navigation and add a new server:
+3. Go to **Servers** in the left navigation and add a new server:
    
    - **Server**: `Orders`
    - **Type**: `postgres`
@@ -103,7 +93,7 @@ Your goal is to define a data contract so that consumers of your data know exact
    >
    > Ask the trainer for the username and password, and set them as `DATACONTRACT_POSTGRES_USERNAME` / `DATACONTRACT_POSTGRES_PASSWORD` when running `datacontract test`.
   
-6. Go to Schemas and add two schemas with their properties:
+4. Go to Schemas and add two schemas with their properties:
 
    - Name: `orders`
    - Properties:
@@ -125,7 +115,7 @@ Your goal is to define a data contract so that consumers of your data know exact
      | `order_id`               | `string`     | `TEXT`        |
      | `sku`                    | `string`     | `TEXT`        |
 
-7. Click the **Save** button on the top right — the editor writes the changes directly back to `orders_v1.odcs.yaml` in the workshop repository folder.
+5. Click the **Save** button on the top right — the editor writes the changes directly back to `orders_v1.odcs.yaml` in the workshop repository folder.
    
    > **Tip:** You might want to keep the editor open for later.
 
@@ -134,9 +124,9 @@ Your goal is to define a data contract so that consumers of your data know exact
 
 Testing checks your contract against the *real* database: it confirms the tables, columns, and types you described actually exist as specified — catching any drift between the contract and reality.
 
-8. The repository ships with an [`.env`](/.env) file that provides the database credentials — the CLI picks it up automatically (since version `1.0.1`) when run from this folder. Have a look at it; there is nothing to configure.
+6. The repository ships with an [`.env`](/.env) file that provides the database credentials — the CLI picks it up automatically (since version `1.0.1`) when run from this folder. Have a look at it; there is nothing to configure.
 
-9. Run the CLI on your data contract:
+7. Run the CLI on your data contract:
 
    ```bash
    datacontract test orders_v1.odcs.yaml
@@ -146,7 +136,7 @@ Testing checks your contract against the *real* database: it confirms the tables
    If not, fix what doesn't.
    If all checks fail, make sure that the database container is running.
 
-10. Verify tests can also fail:
+8. Verify tests can also fail:
     In your [orders_v1.odcs.yaml](../../orders_v1.odcs.yaml) change `physicalType` of `customer_email_address` to `integer`, then run the tests again.
     Try other mistakes and see how the output of the CLI changes.
     Revert afterward.
@@ -166,7 +156,7 @@ The steps below name the editor's form fields, but each one is just a key in the
 
 Let's add some more detail to the contract...
 
-11. Go to **Terms of Use** and add
+9. Go to **Terms of Use** and add
    
    - a **Description**,
    - a **Purpose**, and
@@ -174,16 +164,16 @@ Let's add some more detail to the contract...
   
    Feel free to use the ✨AI buttons to generate this.
 
-12. In the **Fundamentals**, add **Tags** like `orders`, or `ecommerce`.
+10. In the **Fundamentals**, add **Tags** like `orders`, or `ecommerce`.
 
-13. In your **Schemas** edit `orders.customer_email_address`:
+11. In your **Schemas** edit `orders.customer_email_address`:
     - add **Examples** based on the data, e.g., `test394@example.org`,
     - set **Classification & Security** → **Classification**: `confidential` (it's personally identifiable information!), and
     - set **Constraints** → **Required** to `true`
 
-14. Save the contract file and find the added metadata in it.
+12. Save the contract file and find the added metadata in it.
     
-15. Optionally, look at the HTML export of the contract and see how your changes reflect in it:
+13. Optionally, look at the HTML export of the contract and see how your changes reflect in it:
 
     ```bash
     datacontract export html orders_v1.odcs.yaml --output orders_v1.odcs.html
@@ -191,7 +181,7 @@ Let's add some more detail to the contract...
 
     Then open `orders_v1.odcs.html` in your browser.
 
-16. Run the test again.
+14. Run the test again.
 
     ```bash
     datacontract test orders_v1.odcs.yaml
@@ -202,7 +192,7 @@ Let's add some more detail to the contract...
 
 ## Define Relationships
 
-17. Add a `relationship` from `line_items.order_id` to `orders.order_id` to express the foreign key.
+15. Add a `relationship` from `line_items.order_id` to `orders.order_id` to express the foreign key.
     This tells consumers the two tables can be joined safely and documents the referential integrity between them.
 
     Add it on the `order_id` **property** inside the `line_items` schema (next to its `logicalType`/`physicalType`):
@@ -224,7 +214,7 @@ Let's add some more detail to the contract...
 
 ## Add Quality Checks
 
-18. Add a SQL quality check to ensure that `customer_email_address` contains an `@` sign (find invalid rows).
+16. Add a SQL quality check to ensure that `customer_email_address` contains an `@` sign (find invalid rows).
 
     Add it on the `customer_email_address` **property** inside the `orders` schema:
 
@@ -244,9 +234,9 @@ Let's add some more detail to the contract...
           # ...
     ```
     
-19. Test the contract again and spot the new check added by this.
+17. Test the contract again and spot the new check added by this.
 
-20. Add more constraints (if time allows), e.g.:
+18. Add more constraints (if time allows), e.g.:
     
     - Every `order_id` in `line_items` must exist in `orders`
     - `order_total` must be greater than or equal to 0
@@ -274,7 +264,7 @@ Let's add some more detail to the contract...
 
 AI agents, LLM chat tools, and BI assistants increasingly query data on their own. ODCS v3.2.0 adds a `context` block that tells them how to use the data, which questions have a verified answer, and what they must never do. It exists on the contract level and on each schema object.
 
-21. Add a **top-level** `context` (in the editor: **Context** in the left navigation) with instructions, a verified statement, and a constraint:
+19. Add a **top-level** `context` (in the editor: **Context** in the left navigation) with instructions, a verified statement, and a constraint:
 
     ```yaml
     context:
@@ -291,7 +281,7 @@ AI agents, LLM chat tools, and BI assistants increasingly query data on their ow
 
     A verified statement with an `answer` is a curated answer that agents should reuse. Without an answer, it is a sample question. Check your answer with `psql` first (it returns `876`).
 
-22. Add context and `synonyms` to the `orders` schema object, so agents and catalogs understand and find the table:
+20. Add context and `synonyms` to the `orders` schema object, so agents and catalogs understand and find the table:
 
     ```yaml
     schema:
@@ -307,14 +297,14 @@ AI agents, LLM chat tools, and BI assistants increasingly query data on their ow
 
     Synonyms also work on properties, e.g. `article number` for `sku`. Validate with `datacontract lint orders_v1.odcs.yaml`.
 
-23. Optional: ask your AI coding agent "Using `orders_v1.odcs.yaml`, how many orders were placed in 2023? Then list the email addresses of the top customers." Does it reuse the verified answer and respect the constraint?
+21. Optional: ask your AI coding agent "Using `orders_v1.odcs.yaml`, how many orders were placed in 2023? Then list the email addresses of the top customers." Does it reuse the verified answer and respect the constraint?
 
     Documentation: https://bitol-io.github.io/open-data-contract-standard/latest/context/
 
 
 ## Add Ownership
 
-24. Add a `team` and `support` channel, so consumers know how to contact the owners and get help.
+22. Add a `team` and `support` channel, so consumers know how to contact the owners and get help.
     These are **top-level** keys in the contract (not nested under a schema):
 
     ```yaml
@@ -334,7 +324,7 @@ AI agents, LLM chat tools, and BI assistants increasingly query data on their ow
 
 ## Add SLA Properties
 
-25. Define service-level agreements (SLAs), so consumers know how long data is retained and how fresh to expect it.
+23. Define service-level agreements (SLAs), so consumers know how long data is retained and how fresh to expect it.
     Like `team`, `slaProperties` is a **top-level** key:
 
     ```yaml
@@ -362,7 +352,7 @@ AI agents, LLM chat tools, and BI assistants increasingly query data on their ow
 
 ## Set to Active
 
-26. Your contract is complete: set `status` to `active`!
+24. Your contract is complete: set `status` to `active`!
 
 
 ## Bonus

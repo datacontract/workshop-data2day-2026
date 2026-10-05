@@ -4,6 +4,8 @@ Workshop repository for "Mit Data Contracts Vertrauen in Daten herstellen" (Gett
 
 Hands-on: put a PostgreSQL dataset under contract with [ODCS](https://bitol-io.github.io/open-data-contract-standard/), describe it as a data product with [ODPS](https://bitol-io.github.io/open-data-product-standard/), and build a derived data product on top using plain SQL.
 
+![The scenario: the Orders data product, the derived SKU Sales data product, and the purchasing team as consumer](exercises/images/scenario-all.webp)
+
 
 ## Prerequisites
 
@@ -22,32 +24,7 @@ Hands-on: put a PostgreSQL dataset under contract with [ODCS](https://bitol-io.g
 
 ## Getting Started
 
-Clone the repository and install the CLIs (on Windows: `scripts\install.bat`):
-
-```
-git clone https://github.com/datacontract/workshop-data2day-2026.git
-cd workshop-data2day-2026
-scripts/install.sh
-```
-
-Start the database (PostgreSQL on `localhost:5433`, preloaded with e-commerce data):
-
-```
-docker compose up -d
-```
-
-Connection:
-
-- **Host**: `localhost`
-- **Port**: `5433`
-- **Database**: `workshop`
-- **Username**: `workshop`
-- **Password**: `workshop`
-
-It holds two schemas, `orders_v1` and `orders_v2`, each with `orders` and `line_items` tables.
-
-Open a SQL prompt with `docker compose exec postgres psql -U workshop -d workshop`.
-To reset the database, run `docker compose down && docker compose up -d`.
+Follow the [setup](exercises/SETUP.md): clone the repository, install the CLIs, and start the database.
 
 
 ## Part A: The Source Data Product

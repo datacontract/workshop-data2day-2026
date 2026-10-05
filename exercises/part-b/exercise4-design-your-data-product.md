@@ -6,6 +6,10 @@ You work **contract-first**: before writing any SQL, you design the data contrac
 
 You consume the `orders_v2` contract — it guarantees you the `quantity` column.
 
+![SKU Sales, designed but not implemented yet, reads orders_v2 and serves the purchasing team](../images/scenario-contract-first.webp)
+
+**In this exercise:** the contract and ODPS description of SKU Sales. Designed first, implemented in the next exercise.
+
 ## Design the Contract
 
 1. Create a new data contract and open it in the Data Contract Editor (the file does not exist yet, so the CLI asks whether to create it — confirm):

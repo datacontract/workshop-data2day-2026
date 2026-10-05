@@ -1,4 +1,4 @@
-apiVersion: v1.0.0
+apiVersion: v1.1.0
 kind: DataProduct
 id: sku_sales
 name: SKU Sales

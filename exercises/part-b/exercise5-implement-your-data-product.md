@@ -5,6 +5,10 @@ In [Exercise 4](exercise4-design-your-data-product.md) you designed the contract
 This is the perfect task for an **AI coding agent**: your data contract is machine-readable metadata that specifies exactly what to build, and `datacontract test` gives the agent a feedback loop to verify its work.
 
 
+![SKU Sales reads orders_v2 and serves the purchasing team](../images/scenario-implement.webp)
+
+**In this exercise:** the SQL view behind SKU Sales, reading from `orders_v2`, until all contract tests pass.
+
 ## Implement with an AI Coding Agent
 
 1. Start your AI coding agent of choice (Claude Code, Codex, Copilot, ...) in the repository and prompt it, for example:

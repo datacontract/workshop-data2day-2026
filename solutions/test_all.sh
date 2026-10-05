@@ -29,11 +29,11 @@ expect_fail() {
 psql_cmd -c "DROP SCHEMA IF EXISTS analytics CASCADE; DROP SCHEMA IF EXISTS sku_sales_input CASCADE;" > /dev/null
 
 echo "### Exercise 1: contract for orders_v1"
-# step 3: explore the data
+# step 1: explore the data
 psql_cmd -c '\dt orders_v1.*' -c 'SELECT * FROM orders_v1.orders LIMIT 5;' -c 'SELECT * FROM orders_v1.line_items LIMIT 5;' > /dev/null
 datacontract lint solutions/exercise1/orders_v1.odcs.yaml
 datacontract test solutions/exercise1/orders_v1.odcs.yaml
-# step 10: verify tests can also fail (broken physicalType)
+# step 8: verify tests can also fail (broken physicalType)
 sed 's/^  - name: customer_email_address$/  - name: customer_email_address_renamed/' \
   solutions/exercise1/orders_v1.odcs.yaml > /tmp/orders_v1.broken.odcs.yaml
 expect_fail datacontract test /tmp/orders_v1.broken.odcs.yaml
