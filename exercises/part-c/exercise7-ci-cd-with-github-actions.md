@@ -66,7 +66,7 @@ Builds on Parts A and B only. You need a [GitHub](https://github.com) account.
          - name: Install the CLIs
            run: |
              uv tool install --python 3.11 'datacontract-cli[postgres]==1.2.3'
-             uv tool install --python 3.11 'dataproduct-cli==0.3.0'
+             uv tool install --python 3.11 'dataproduct-cli==0.3.1'
 
          - name: Lint data contracts
            run: |
