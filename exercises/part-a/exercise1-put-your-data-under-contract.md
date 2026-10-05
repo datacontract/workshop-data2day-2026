@@ -212,6 +212,9 @@ Let's add some more detail to the contract...
           # ...
     ```
 
+    > [!TIP]
+    > You can also do this visually: open the **Diagram** view in the Data Contract Editor and drag from the handle of `line_items.order_id` to `orders.order_id`. The editor adds the same `foreignKey` relationship.
+
 ## Add Quality Checks
 
 16. Add a SQL quality check to ensure that `customer_email_address` contains an `@` sign (find invalid rows).
