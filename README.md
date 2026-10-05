@@ -8,7 +8,7 @@ Hands-on: put a PostgreSQL dataset under contract with [ODCS](https://bitol-io.g
 ## Prerequisites
 
 - [Docker](https://www.docker.com/) (with Docker Compose)
-- [uv](https://docs.astral.sh/uv/) — used to install the [Data Contract CLI](https://cli.datacontract.com) and the [Entropy Data CLI](https://github.com/entropy-data/entropy-data-cli), see [`scripts/install.sh`](scripts/install.sh)
+- [uv](https://docs.astral.sh/uv/) — used to install the [Data Contract CLI](https://cli.datacontract.com), the [Data Product CLI](https://github.com/datacontract/dataproduct-cli), and the [Entropy Data CLI](https://github.com/entropy-data/entropy-data-cli), see [`scripts/install.sh`](scripts/install.sh)
 
 > [!IMPORTANT]
 > **Can't install anything on your laptop?** You can still participate: do the first two exercises directly in the hosted [Data Contract Editor](https://editor.datacontract.com) — it runs entirely in the browser, no installation needed. Use the shared cloud database (see the note in [Exercise 1](exercises/part-a/exercise1-put-your-data-under-contract.md)) instead of the local one.
@@ -83,7 +83,7 @@ No account on [app.entropy-data.com](https://app.entropy-data.com)? Run the [Ent
 
 - [ODCS Docs](https://bitol-io.github.io/open-data-contract-standard/) · [Source (GitHub)](https://github.com/bitol-io/open-data-contract-standard)
 - [ODPS Docs](https://bitol-io.github.io/open-data-product-standard/) · [Source (GitHub)](https://github.com/bitol-io/open-data-product-standard)
-- [Data Contract CLI (GitHub)](https://github.com/datacontract/datacontract-cli)
+- [Data Contract CLI (GitHub)](https://github.com/datacontract/datacontract-cli) · [Data Product CLI (GitHub)](https://github.com/datacontract/dataproduct-cli)
 - [Entropy Data Docs](https://docs.entropy-data.com) · [Entropy Data CLI (GitHub)](https://github.com/entropy-data/entropy-data-cli)
 
 
